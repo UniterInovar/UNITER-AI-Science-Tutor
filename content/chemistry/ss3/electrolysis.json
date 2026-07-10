@@ -1,0 +1,77 @@
+{
+    "id": "chem_ss3_001",
+    "subject": "Chemistry",
+    "level": "SS3",
+    "term": "Second Term",
+    "week": "Week 6",
+    "topic": "Electrolysis",
+
+    "learning_objectives": [
+        "Define electrolysis.",
+        "Explain the process of electrolysis.",
+        "Identify the products at the cathode and anode.",
+        "Write electrode equations."
+    ],
+
+    "keywords": [
+        "Electrolysis",
+        "Electrolyte",
+        "Cathode",
+        "Anode",
+        "Cation",
+        "Anion"
+    ],
+
+    "definition": "Electrolysis is the chemical decomposition of an electrolyte by the passage of electric current.",
+
+    "simple_explanation": "When electricity passes through a molten or aqueous ionic substance, positive ions move to the cathode while negative ions move to the anode where chemical reactions occur.",
+
+    "detailed_explanation": "Electrolysis uses electrical energy to drive a non-spontaneous chemical reaction. Positive ions gain electrons at the cathode (reduction), while negative ions lose electrons at the anode (oxidation).",
+
+    "equations": [
+        {
+            "name": "Cathode",
+            "equation": "Cu²⁺ + 2e⁻ → Cu(s)"
+        },
+        {
+            "name": "Anode",
+            "equation": "2Cl⁻ → Cl₂ + 2e⁻"
+        }
+    ],
+
+    "applications": [
+        "Electroplating",
+        "Extraction of aluminium",
+        "Purification of copper"
+    ],
+
+    "common_mistakes": [
+        "Confusing the cathode with the anode.",
+        "Forgetting that reduction occurs at the cathode.",
+        "Ignoring the effect of inert and active electrodes."
+    ],
+
+    "exam_tips": [
+        "Always identify the electrolyte.",
+        "Determine whether the solution is molten or aqueous.",
+        "Write balanced ionic equations."
+    ],
+
+    "practice_questions": [
+        "Define electrolysis.",
+        "State two applications of electrolysis.",
+        "Write the cathode equation for copper(II) sulphate solution using inert electrodes."
+    ],
+
+    "answers": [
+        "Electrolysis is the chemical decomposition of an electrolyte by the passage of electric current.",
+        "Electroplating and purification of copper.",
+        "Cu²⁺ + 2e⁻ → Cu(s)"
+    ],
+
+    "related_topics": [
+        "Redox Reactions",
+        "Electrochemical Cells",
+        "Faraday's Laws"
+    ]
+}

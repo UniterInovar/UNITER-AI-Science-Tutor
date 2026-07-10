@@ -1,75 +1,51 @@
 """
-UNITER AI Science Tutor
+UNITER AI Science Tutor API
 
-Main application entry point.
+Main FastAPI application.
 """
 
-from __future__ import annotations
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from ai_engine.tutor import ScienceTutor
+from backend.app.api.router import api_router
 
+app = FastAPI(
+    title="UNITER AI Science Tutor",
+    description="AI-powered science education platform for students, teachers and schools.",
+    version="0.1.0",
+)
 
-def display_answer(answer) -> None:
-    """
-    Display the tutor's answer in a readable format.
-    """
+# -----------------------------
+# CORS
+# -----------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
+        "http://localhost:5175",
+        "http://127.0.0.1:5175",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-    if isinstance(answer, dict):
-
-        for key, value in answer.items():
-
-            print(f"\n{key.upper()}")
-
-            if isinstance(value, dict):
-
-                for sub_key, sub_value in value.items():
-                    print(f"  {sub_key}: {sub_value}")
-
-            elif isinstance(value, list):
-
-                for item in value:
-                    print(f"  - {item}")
-
-            else:
-                print(value)
-
-    else:
-        print(answer)
-
-
-def main() -> None:
-    """
-    Run the AI Science Tutor.
-    """
-
-    tutor = ScienceTutor()
-
-    print("=" * 60)
-    print("UNITER AI SCIENCE TUTOR")
-    print("=" * 60)
-
-    while True:
-
-        subject = input("\nSubject (or 'exit'): ").strip()
-
-        if subject.lower() == "exit":
-            break
-
-        topic = input("Topic: ").strip()
-
-        answer = tutor.answer(
-            subject,
-            topic,
-        )
-
-        print("\n" + "-" * 60)
-
-        display_answer(answer)
-
-        print("-" * 60)
-
-    print("\nThank you for using UNITER AI Science Tutor.")
+# -----------------------------
+# Register all API routes
+# -----------------------------
+app.include_router(api_router)
 
 
-if __name__ == "__main__":
-    main()
+# -----------------------------
+# Root Endpoint
+# -----------------------------
+@app.get("/", tags=["Root"])
+def root():
+    return {
+        "application": "UNITER AI Science Tutor",
+        "version": "0.1.0",
+        "status": "running",
+    }
