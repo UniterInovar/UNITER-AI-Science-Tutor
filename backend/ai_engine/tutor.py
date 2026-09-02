@@ -34,7 +34,6 @@ class ScienceTutor:
         subject = subject.lower().strip()
 
         if subject == "chemistry":
-
             result = get_topic(topic)
 
             if result:

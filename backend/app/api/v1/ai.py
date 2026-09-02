@@ -3,19 +3,21 @@ from pydantic import BaseModel
 
 from backend.app.ai.tutor import Tutor
 
-router = APIRouter(prefix="/ai", tags=["AI"])
+router = APIRouter(
+    prefix="/ai",
+    tags=["AI"],
+)
 
 
-class QuestionRequest(BaseModel):
-    question: str
+class ChatRequest(BaseModel):
+    subject: str
+    message: str
 
 
 @router.post("/ask")
-def ask_ai(request: QuestionRequest):
+def ask_ai(request: ChatRequest):
     """
-    Ask the AI tutor a science question.
+    Ask the AI Tutor a science question.
     """
 
-    answer = Tutor.ask(request.question)
-
-    return answer
+    return Tutor.ask(request.message)

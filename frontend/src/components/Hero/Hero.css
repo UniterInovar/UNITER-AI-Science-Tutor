@@ -1,0 +1,55 @@
+.hero{
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+margin-bottom:30px;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+color:#2563eb;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+line-height:1.7;
+
+color:#555;
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+padding:25px;
+
+}
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+}

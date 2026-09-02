@@ -14,18 +14,14 @@ from backend.app.services.content_service import ContentService
 
 
 class Tutor:
-
     @staticmethod
     def ask(question: str) -> dict:
-
         match = TopicMatcher.find_topic(question)
 
         if match is None:
             return {
                 "success": False,
-                "message": (
-                    "Sorry, I couldn't identify the lesson topic."
-                ),
+                "message": ("Sorry, I couldn't identify the lesson topic."),
             }
 
         lesson = ContentService.get_topic(
@@ -40,9 +36,7 @@ class Tutor:
                 "message": "Lesson not found.",
             }
 
-        response = ResponseBuilder.build_student_response(
-            lesson
-        )
+        response = ResponseBuilder.build_student_response(lesson)
 
         return {
             "success": True,

@@ -29,9 +29,7 @@ class ContentService:
             return []
 
         return sorted(
-            folder.name
-            for folder in cls.CONTENT_DIR.iterdir()
-            if folder.is_dir()
+            folder.name for folder in cls.CONTENT_DIR.iterdir() if folder.is_dir()
         )
 
     @classmethod
@@ -49,9 +47,7 @@ class ContentService:
             return []
 
         return sorted(
-            folder.name
-            for folder in subject_path.iterdir()
-            if folder.is_dir()
+            folder.name for folder in subject_path.iterdir() if folder.is_dir()
         )
 
     @classmethod
@@ -64,19 +60,12 @@ class ContentService:
         Return available topics.
         """
 
-        level_path = (
-            cls.CONTENT_DIR
-            / subject.lower()
-            / level.lower()
-        )
+        level_path = cls.CONTENT_DIR / subject.lower() / level.lower()
 
         if not level_path.exists():
             return []
 
-        return sorted(
-            file.stem
-            for file in level_path.glob("*.json")
-        )
+        return sorted(file.stem for file in level_path.glob("*.json"))
 
     @classmethod
     def get_topic(
@@ -93,10 +82,7 @@ class ContentService:
         """
 
         file_path = (
-            cls.CONTENT_DIR
-            / subject.lower()
-            / level.lower()
-            / f"{topic.lower()}.json"
+            cls.CONTENT_DIR / subject.lower() / level.lower() / f"{topic.lower()}.json"
         )
 
         if not file_path.exists():

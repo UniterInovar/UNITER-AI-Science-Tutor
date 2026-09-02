@@ -17,8 +17,7 @@ class Settings:
     APP_VERSION = "0.1.0"
 
     APP_DESCRIPTION = (
-        "AI-powered science education platform for "
-        "students, teachers and schools."
+        "AI-powered science education platform for " "students, teachers and schools."
     )
 
     API_PREFIX = "/api/v1"

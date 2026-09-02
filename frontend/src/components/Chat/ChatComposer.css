@@ -1,0 +1,72 @@
+.chat-composer{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    max-width:900px;
+    margin:20px auto;
+}
+
+.chat-composer select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+.chat-composer textarea{
+    width:100%;
+    resize:none;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:16px;
+    font-family:inherit;
+    box-sizing:border-box;
+}
+
+.composer-actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.composer-actions button{
+    padding:10px 16px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.send-btn{
+    margin-left:auto;
+    background:#2563eb;
+    color:white;
+}
+
+.attachment-list{
+    margin-top:20px;
+}
+
+.attachment-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:10px;
+    background:#f8fafc;
+
+    border-radius:10px;
+
+    margin-top:10px;
+}
+
+.attachment-item button{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}

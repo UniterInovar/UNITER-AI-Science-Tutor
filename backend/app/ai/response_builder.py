@@ -21,33 +21,21 @@ class ResponseBuilder:
         equations = []
 
         for equation in lesson.get("equations", []):
-            equations.append({
-                "name": equation["name"],
-                "equation": equation["equation"],
-            })
+            equations.append(
+                {
+                    "name": equation["name"],
+                    "equation": equation["equation"],
+                }
+            )
 
         return {
             "topic": lesson.get("topic"),
-
             "definition": lesson.get("definition"),
-
-            "simple_explanation":
-                lesson.get("simple_explanation"),
-
-            "detailed_explanation":
-                lesson.get("detailed_explanation"),
-
+            "simple_explanation": lesson.get("simple_explanation"),
+            "detailed_explanation": lesson.get("detailed_explanation"),
             "equations": equations,
-
-            "applications":
-                lesson.get("applications", []),
-
-            "exam_tips":
-                lesson.get("exam_tips", []),
-
-            "practice_questions":
-                lesson.get("practice_questions", []),
-
-            "related_topics":
-                lesson.get("related_topics", []),
+            "applications": lesson.get("applications", []),
+            "exam_tips": lesson.get("exam_tips", []),
+            "practice_questions": lesson.get("practice_questions", []),
+            "related_topics": lesson.get("related_topics", []),
         }

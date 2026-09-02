@@ -31,6 +31,7 @@ router = APIRouter(
 # Subjects
 # ==========================================================
 
+
 @router.get(
     "/subjects",
     summary="Get available subjects",
@@ -40,14 +41,13 @@ def get_subjects() -> dict:
     Returns all available subjects.
     """
 
-    return {
-        "subjects": ContentService.get_subjects()
-    }
+    return {"subjects": ContentService.get_subjects()}
 
 
 # ==========================================================
 # Levels
 # ==========================================================
+
 
 @router.get(
     "/subjects/{subject}",
@@ -75,6 +75,7 @@ def get_levels(subject: str) -> dict:
 # ==========================================================
 # Topics
 # ==========================================================
+
 
 @router.get(
     "/topics/{subject}/{level}",
@@ -110,6 +111,7 @@ def get_topics(
 # Retrieve Lesson
 # ==========================================================
 
+
 @router.post(
     "/topic",
     response_model=TopicResponse,
@@ -123,7 +125,6 @@ def get_topic(
     """
 
     try:
-
         lesson = KnowledgeLoader.get_topic(
             subject=request.subject,
             level=request.level,
@@ -135,14 +136,12 @@ def get_topic(
         )
 
     except FileNotFoundError:
-
         raise HTTPException(
             status_code=404,
             detail="Topic not found.",
         )
 
     except ValueError:
-
         raise HTTPException(
             status_code=500,
             detail="Invalid lesson file.",

@@ -30,9 +30,7 @@ def configure_logging() -> logging.Logger:
         encoding="utf-8",
     )
 
-    formatter = logging.Formatter(
-        "%(asctime)s | %(levelname)s | %(message)s"
-    )
+    formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
 
     handler.setFormatter(formatter)
 

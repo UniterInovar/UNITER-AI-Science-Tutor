@@ -67,11 +67,7 @@ class TopicMatcher:
 
         words = question.split()
 
-        keywords = [
-            word
-            for word in words
-            if word not in cls.STOP_WORDS
-        ]
+        keywords = [word for word in words if word not in cls.STOP_WORDS]
 
         return keywords
 
@@ -92,21 +88,17 @@ class TopicMatcher:
         # -------------------------------------
 
         for subject in subjects:
-
             levels = ContentService.get_levels(subject)
 
             for level in levels:
-
                 topics = ContentService.get_topics(subject, level)
 
                 for topic in topics:
-
                     topic_lower = topic.lower()
 
                     pattern = r"\b" + re.escape(topic_lower) + r"\b"
 
                     if re.search(pattern, cleaned_question):
-
                         return {
                             "subject": subject,
                             "level": level,
@@ -119,25 +111,17 @@ class TopicMatcher:
         # -------------------------------------
 
         for subject in subjects:
-
             levels = ContentService.get_levels(subject)
 
             for level in levels:
-
                 topics = ContentService.get_topics(subject, level)
 
                 for topic in topics:
-
                     topic_words = topic.lower().split()
 
-                    matches = sum(
-                        1
-                        for keyword in keywords
-                        if keyword in topic_words
-                    )
+                    matches = sum(1 for keyword in keywords if keyword in topic_words)
 
                     if matches > 0:
-
                         return {
                             "subject": subject,
                             "level": level,

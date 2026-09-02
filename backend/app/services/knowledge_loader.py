@@ -28,20 +28,14 @@ class KnowledgeLoader:
         level: str,
         topic: str,
     ) -> dict[str, Any]:
-
         lesson_path = (
-            cls.CONTENT_DIR
-            / subject.lower()
-            / level.lower()
-            / f"{topic.lower()}.json"
+            cls.CONTENT_DIR / subject.lower() / level.lower() / f"{topic.lower()}.json"
         )
 
         cls.logger.info("Loading lesson: %s", lesson_path)
 
         if not lesson_path.exists():
-            raise FileNotFoundError(
-                f"Lesson '{topic}' not found."
-            )
+            raise FileNotFoundError(f"Lesson '{topic}' not found.")
 
         try:
             with lesson_path.open(
@@ -51,9 +45,7 @@ class KnowledgeLoader:
                 return json.load(file)
 
         except json.JSONDecodeError as error:
-            raise ValueError(
-                "Invalid lesson JSON."
-            ) from error
+            raise ValueError("Invalid lesson JSON.") from error
 
     @classmethod
     def topic_exists(
@@ -62,12 +54,8 @@ class KnowledgeLoader:
         level: str,
         topic: str,
     ) -> bool:
-
         lesson_path = (
-            cls.CONTENT_DIR
-            / subject.lower()
-            / level.lower()
-            / f"{topic.lower()}.json"
+            cls.CONTENT_DIR / subject.lower() / level.lower() / f"{topic.lower()}.json"
         )
 
         return lesson_path.exists()
